@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./template.css">
+        <title>Template</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">Template</header>
+            <div class="change-view">
+                <span class="change-view__name">Отсортировано по названию</span>
+                <span class="change-view__date change-view__date_hidden">Изменено</span>
+                <img
+                    src="https://img.icons8.com/material-outlined/64/000000/list.png"
+                    class="change-view__button change-view__button_list"
+                />
+            </div>
+            <div class="content content_block">
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="Sv5uvhAA.jpeg" alt="Dreamshare_Landing_Desktop.jpg">
+                        <div class="content-item__name">Dreamshare_Landing_Desktop.jpg</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 14:02</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="Sv5uvhAA.jpeg" alt="Dreamshare_Landing_Desktop.psd">
+                        <div class="content-item__name">Dreamshare_Landing_Desktop.psd</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 14:01</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="4rtlfXvA.jpeg" alt="Dreamshare_Landing_Mobile.jpg">
+                        <div class="content-item__name">Dreamshare_Landing_Mobile.jpg</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 15:15</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="4rtlfXvA.jpeg" alt="Dreamshare_Landing_Mobile.psd">
+                        <div class="content-item__name">Dreamshare_Landing_Mobile.psd</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 16:24</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="OKXgMWfQ.jpeg" alt="Dreamshare_Landing_Tablet.jpg">
+                        <div class="content-item__name">Dreamshare_Landing_Tablet.jpg</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 14:55</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="OKXgMWfQ.jpeg" alt="Dreamshare_Landing_Tablet.psd">
+                        <div class="content-item__name">Dreamshare_Landing_Tablet.psd</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 20:48</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="5p5qXOdg.jpeg" alt="Montserrat Regular.ttf">
+                        <div class="content-item__name">Montserrat Regular.ttf</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 11:01</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="Ala9KLiw.jpeg" alt="MotserratBold.ttf">
+                        <div class="content-item__name">MotserratBold.ttf</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 08:16</span>
+                </div>
+                <div class="content-item">
+                    <div class="content-item__description">
+                        <img class="content-item__image" src="bG9-_9lw.jpeg" alt="Roboto.ttf">
+                        <div class="content-item__name">Roboto.ttf</div>
+                    </div>
+                    <span class="content-item__modified-date">18.02.2016 14:01</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const view = document.querySelector('.content');
+            changeViewButton(view);
+
+            function changeViewButton(view) {
+                const button = document.querySelector('.change-view__button');
+                
+                button.addEventListener('click', () => {
+                const changeViewElem = document.querySelector('.change-view');
+                const button = document.querySelector('.change-view__button');
+                const name = document.querySelector('.change-view__name');
+                const date = document.querySelector('.change-view__date');
+                let state = 'block';
+
+                    if(button.classList[1] === 'change-view__button_list') {
+                        button.className = 'change-view__button change-view__button_block';
+                        button.src = 'https://img.icons8.com/material-sharp/24/000000/grid-2.png';
+                        name.innerHTML = 'Имя';
+                        date.className = 'change-view__date change-view__date_visible';
+                        state = 'list';
+                        changeView(view, state);
+                    }
+                    else {
+                        button.className = 'change-view__button change-view__button_list';
+                        button.src = 'https://img.icons8.com/material-outlined/64/000000/list.png';
+                        name.innerHTML = 'Отсортировано по названию';
+                        date.className = 'change-view__date change-view__date_hidden';
+                        state = 'block'
+                        changeView(view, state);
+                    }
+                });
+                function changeView(view, state) {
+                    if(state === 'block') {
+                        view.className = 'content content_block'
+                    } else {
+                        view.className = 'content content_list'
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
